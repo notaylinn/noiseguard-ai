@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.Python
+
+# Env / secrets
+.env
+
+# Database
+*.db
+*.sqlite3
+storage/noiseguard.db
+
+# Audio / generated artifacts
+storage/audio/*
+!storage/audio/.gitkeep
+storage/reports/*
+!storage/reports/.gitkeep
+
+# TF Hub cache
+tfhub_cache/
+.model_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
