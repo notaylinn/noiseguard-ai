@@ -10,7 +10,7 @@ generates a structured, professional report — turning "it's really
 loud outside" into an objective, documented, actionable report for a
 housing service, akimat or business.
 
-> ⚠️ **Honesty first:** this app estimates *relative* acoustic
+>  **Honesty first:** this app estimates *relative* acoustic
 > intensity from an uncalibrated recording device. It does **not**
 > produce certified decibel (dB SPL) measurements and cannot replace
 > an accredited sound-level meter for legal/regulatory purposes. See
@@ -27,18 +27,18 @@ statement, target users, realistic use cases, and CustDev summary.
 
 ## Features
 
-- 🎙️ Upload or record audio directly in the browser
-- 🧠 Real local YAMNet inference (521 AudioSet sound classes)
-- 📊 Librosa DSP feature extraction: RMS, MFCC, mel-spectrogram,
+-  Upload or record audio directly in the browser
+-  Real local YAMNet inference (521 AudioSet sound classes)
+-  Librosa DSP feature extraction: RMS, MFCC, mel-spectrogram,
   spectral centroid/bandwidth/roll-off, zero-crossing rate, duration
-- 📈 Waveform, spectrogram, prediction and confidence charts (Plotly)
-- 🔉 Relative loudness estimate with explicit calibration caveat
-- 🌍 Plain-language environmental interpretation + actionable recommendations
-- 🗂️ Analysis history with per-record detail, delete, and PDF download
-- 📊 Aggregate statistics dashboard
-- 📄 Professional PDF report generation (ReportLab)
-- 📤 CSV export of full history (pandas)
-- ⚙️ Settings / backend health page
+-  Waveform, spectrogram, prediction and confidence charts (Plotly)
+-  Relative loudness estimate with explicit calibration caveat
+-  Plain-language environmental interpretation + actionable recommendations
+-  Analysis history with per-record detail, delete, and PDF download
+-  Aggregate statistics dashboard
+-  Professional PDF report generation (ReportLab)
+-  CSV export of full history (pandas)
+-  Settings / backend health page
 
 ## Tech stack
 
