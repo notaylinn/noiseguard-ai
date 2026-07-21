@@ -44,7 +44,13 @@ class PdfReportService:
         self._styles.add(ParagraphStyle(name="NGBody", fontSize=10, leading=14))
         self._styles.add(ParagraphStyle(name="NGDisclaimer", fontSize=8.5, leading=11, textColor=colors.HexColor("#7a1f1f")))
 
-    def generate(self, result: AnalysisResult, output_path: str | Path | None = None) -> Path:
+    def generate(
+        self,
+        result: AnalysisResult,
+        output_path: str | Path | None = None,
+        user_confirmed_ai: bool | None = None,
+        user_selected_category: str | None = None,
+    ) -> Path:
         output_path = Path(output_path) if output_path else self._settings.report_storage_dir / f"report_{result.id}.pdf"
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -85,11 +91,20 @@ class PdfReportService:
         story.append(Paragraph("4. Environmental Interpretation", s["NGSection"]))
         story.append(Paragraph(result.environmental_interpretation, s["NGBody"]))
 
-        story.append(Paragraph("5. Recommendations", s["NGSection"]))
+        if user_confirmed_ai is not None:
+            story.append(Paragraph("5. User Confirmation", s["NGSection"]))
+            user_confirmation_data = [["AI Prediction", result.top_prediction.label]]
+            if user_confirmed_ai:
+                user_confirmation_data.append(["User Confirmation", "Confirmed AI prediction"])
+            else:
+                user_confirmation_data.append(["User Confirmation", user_selected_category or "—"])
+            story.append(self._table(user_confirmation_data))
+
+        story.append(Paragraph("6. Recommendations", s["NGSection"]))
         for rec in result.recommendations:
             story.append(Paragraph(f"• {rec}", s["NGBody"]))
 
-        story.append(Paragraph("6. Important Limitation", s["NGSection"]))
+        story.append(Paragraph("7. Important Limitation", s["NGSection"]))
         story.append(
             Paragraph(
                 "This report is generated from an uncalibrated smartphone/microphone recording. "

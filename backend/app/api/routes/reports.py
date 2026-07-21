@@ -18,6 +18,8 @@ router = APIRouter(tags=["Reports"])
 @router.get("/reports/{analysis_id}/pdf")
 def download_pdf_report(
     analysis_id: str,
+    user_confirmed_ai: bool | None = None,
+    user_selected_category: str | None = None,
     repository: AnalysisRepositoryPort = Depends(get_repository),
     report_service: PdfReportService = Depends(get_report_service),
 ) -> FileResponse:
@@ -25,7 +27,14 @@ def download_pdf_report(
     if result is None:
         raise HTTPException(status_code=404, detail="Analysis not found")
 
-    pdf_path = report_service.generate(result)
+    # user_confirmed_ai / user_selected_category are query params only.
+    # They are used solely for this PDF render and are never persisted
+    # to the database, the analysis entity, or history.
+    pdf_path = report_service.generate(
+        result,
+        user_confirmed_ai=user_confirmed_ai,
+        user_selected_category=user_selected_category,
+    )
     return FileResponse(
         path=str(pdf_path),
         media_type="application/pdf",
