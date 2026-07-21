@@ -1,6 +1,7 @@
 # 🔊 NoiseGuard AI
 
 **AI-powered environmental noise assessment platform for Kazakhstan.**
+NoiseGuard AI transforms a smartphone audio recording into a structured environmental noise report using local AI inference and acoustic signal analysis.
 
 Built for the **Tech Vision** hackathon. NoiseGuard AI lets citizens
 record or upload an environmental sound, classifies it with a real
@@ -24,6 +25,7 @@ construction, traffic, industrial equipment, loud venues — but have no
 good way to document it objectively before filing a complaint. See
 [the About page](frontend/pages/4_About.py) for the full problem
 statement, target users, realistic use cases, and CustDev summary.
+CustDev interviews confirmed that residents often struggle to provide convincing evidence when submitting environmental noise complaints.
 
 ## Features
 
@@ -39,6 +41,7 @@ statement, target users, realistic use cases, and CustDev summary.
 -  Professional PDF report generation (ReportLab)
 -  CSV export of full history (pandas)
 -  Settings / backend health page
+-  - Human-in-the-Loop confirmation of AI prediction
 
 ## Tech stack
 
