@@ -41,7 +41,7 @@ CustDev interviews confirmed that residents often struggle to provide convincing
 -  Professional PDF report generation (ReportLab)
 -  CSV export of full history (pandas)
 -  Settings / backend health page
--  - Human-in-the-Loop confirmation of AI prediction
+-  Human-in-the-Loop confirmation of AI prediction
 
 ## Tech stack
 
